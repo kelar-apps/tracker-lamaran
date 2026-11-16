@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3D5BF0" />
+    <meta name="description" content="Kebijakan privasi Kelar — Tracker Lamaran Kerja." />
+    <title>Kebijakan Privasi — Kelar Tracker Lamaran</title>
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/src/pages/static.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__inner">
+        <img src="/brand/kelar-logo-putih.svg" alt="Kelar Apps" width="127" height="52" />
+        <h1>Kebijakan Privasi</h1>
+        <p>Kelar — Tracker Lamaran Kerja</p>
+      </div>
+    </header>
+
+    <main>
+      <p class="muted">Berlaku sejak 13 November 2026.</p>
+
+      <p>
+        Kebijakan ini menjelaskan data apa yang dipakai oleh <strong>Kelar — Tracker Lamaran Kerja</strong> ("Kelar"), di mana
+        data itu disimpan, dan bagaimana kamu bisa menghapusnya. Singkatnya: <strong>data lamaranmu disimpan di Google Drive
+        milikmu sendiri</strong>, bukan di server kami.
+      </p>
+
+      <h2>1. Data yang dipakai</h2>
+      <h3>Dari akun Google-mu</h3>
+      <ul>
+        <li><strong>Nama dan alamat email</strong>, untuk menyapamu di aplikasi dan memeriksa apakah kamu sudah membeli akses.</li>
+        <li>
+          <strong>Akses ke file buatan Kelar di Google Drive</strong> (izin <code>drive.file</code>). Kelar hanya bisa membuat
+          dan membuka file yang dibuatnya sendiri, yaitu spreadsheet "Kelar — Tracker Lamaran". Kelar <strong>tidak bisa</strong>
+          melihat file lain di Drive-mu.
+        </li>
+      </ul>
+      <h3>Yang kamu ketik sendiri</h3>
+      <p>
+        Data lamaran (perusahaan, posisi, status, jadwal, catatan, kontak HR, dan lainnya) serta pengaturan seperti target
+        mingguan. Semuanya ditulis ke spreadsheet di Drive-mu.
+      </p>
+
+      <h2>2. Di mana data disimpan</h2>
+      <ul>
+        <li><strong>Google Drive milikmu</strong>: spreadsheet berisi semua data lamaranmu.</li>
+        <li>
+          <strong>Browser di perangkatmu</strong> (localStorage): salinan data supaya aplikasi cepat dibuka dan bisa dibaca saat
+          offline, serta nama dan email untuk tampilan. <strong>Token akses Google tidak pernah disimpan</strong>; token hanya ada
+          di memori selama aplikasi terbuka.
+        </li>
+        <li>
+          <strong>Server lisensi Kelar</strong> (Google Apps Script milik penjual): saat kamu masuk, aplikasi mengirim token
+          akses sementara ke server ini. Server memeriksa token itu ke Google untuk mendapatkan email-mu yang terverifikasi,
+          lalu mencocokkannya dengan daftar pembeli. Token tidak disimpan dan tidak dicatat. Daftar pembeli berisi email,
+          produk, tanggal, dan nomor referensi pembelian.
+        </li>
+      </ul>
+      <p>Kelar tidak punya database sendiri untuk data lamaranmu, dan kami tidak bisa membuka spreadsheet di Drive-mu.</p>
+
+      <h2>3. Yang tidak kami lakukan</h2>
+      <ul>
+        <li>Tidak menjual atau membagikan datamu ke pihak lain.</li>
+        <li>Tidak memakai iklan, pelacak, atau analytics.</li>
+        <li>Tidak memakai datamu untuk melatih AI.</li>
+      </ul>
+
+      <h2>4. Penggunaan data Google</h2>
+      <p>
+        Penggunaan dan pemindahan informasi yang diterima dari Google API oleh Kelar mengikuti
+        <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>,
+        termasuk persyaratan <em>Limited Use</em>. Data dari Google hanya dipakai untuk menjalankan fitur Kelar yang kamu
+        lihat di aplikasi.
+      </p>
+
+      <h2>5. Menghapus data dan mencabut akses</h2>
+      <ul>
+        <li><strong>Keluar</strong> di menu Pengaturan menghapus semua data Kelar dari browser di perangkat itu dan mencabut token akses.</li>
+        <li>Hapus spreadsheet "Kelar — Tracker Lamaran" dari Google Drive-mu untuk menghapus data lamaranmu sepenuhnya.</li>
+        <li>
+          Cabut izin Kelar kapan saja di
+          <a href="https://myaccount.google.com/permissions" rel="noopener noreferrer">myaccount.google.com/permissions</a>.
+        </li>
+        <li>Untuk menghapus email-mu dari daftar pembeli, hubungi kami lewat email di bawah.</li>
+      </ul>
+
+      <h2>6. Keamanan</h2>
+      <p>
+        Semua koneksi memakai HTTPS. Teks yang kamu ketik ditulis ke spreadsheet sebagai teks biasa (tidak dijalankan sebagai
+        rumus). Aplikasi hanya membuka link lowongan yang diawali <code>http://</code> atau <code>https://</code>.
+      </p>
+
+      <h2>7. Perubahan kebijakan</h2>
+      <p>Kalau kebijakan ini berubah, versi terbaru akan dipasang di halaman ini dengan tanggal berlaku yang baru.</p>
+
+      <h2>8. Kontak</h2>
+      <p>Pertanyaan tentang privasi: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p>
+
+      <h2 lang="en">Summary in English</h2>
+      <div class="card" lang="en">
+        <p>
+          Kelar stores your job-application data in a spreadsheet in <strong>your own Google Drive</strong>, using the
+          <code>drive.file</code> scope (access only to files Kelar creates). Your name and email are used to greet you and to
+          check your purchase: a short-lived access token is sent to Kelar's license server (Google Apps Script), which verifies
+          it with Google and is never stored or logged. A copy of your data is cached in your browser for offline use; access
+          tokens are kept in memory only. We do not sell or share data, and use no ads or analytics. Kelar's use and transfer of
+          information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use
+          requirements. Sign out to clear local data, delete the spreadsheet from Drive, or revoke access at
+          myaccount.google.com/permissions. Contact: {{CONTACT_EMAIL}}.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <nav aria-label="Tautan">
+        <a href="./">Buka aplikasi</a>
+        <a href="./tentang.html">Tentang Kelar</a>
+      </nav>
+      <p>© Kelar Apps</p>
+    </footer>
+  </body>
+</html>

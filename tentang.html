@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#3D5BF0" />
+    <meta name="description" content="Kelar — Tracker Lamaran Kerja: catat lamaran, pengingat follow-up, jadwal interview, dan statistik. Datamu disimpan di Google Drive milikmu sendiri." />
+    <title>Tentang Kelar — Tracker Lamaran Kerja</title>
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/src/pages/static.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__inner">
+        <img src="/brand/kelar-logo-putih.svg" alt="Kelar Apps" width="127" height="52" />
+        <h1>Tracker Lamaran Kerja</h1>
+        <p>Urusan harian, kelar.</p>
+      </div>
+    </header>
+
+    <main>
+      <p>
+        <strong>Kelar — Tracker Lamaran Kerja</strong> adalah aplikasi web (PWA) untuk mencatat semua lamaran kerjamu di satu
+        tempat, supaya tidak ada yang terlewat.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="./">Buka aplikasi</a>
+        <a class="btn btn-secondary" href="{{BUY_URL}}" rel="noopener noreferrer">Beli akses</a>
+      </div>
+
+      <h2>Fiturnya</h2>
+      <ul>
+        <li>Catat lamaran: perusahaan, posisi, sumber, link lowongan, status, dan catatan.</li>
+        <li>Pengingat follow-up, lengkap dengan template pesan yang bisa disalin.</li>
+        <li>Jadwal interview dan tes, plus tombol "Tambah ke Google Calendar".</li>
+        <li>Riwayat per lamaran dalam bentuk timeline.</li>
+        <li>Cari dan filter lamaran.</li>
+        <li>Statistik (tingkat respons, waktu balasan, funnel) dan target mingguan.</li>
+        <li>Bisa dipasang di layar utama HP dan dibuka saat offline.</li>
+      </ul>
+
+      <h2>Datamu milikmu</h2>
+      <div class="card">
+        <p>
+          Kelar tidak punya server database. Saat kamu masuk dengan Google, Kelar membuat <strong>satu spreadsheet</strong>
+          bernama "Kelar — Tracker Lamaran" di <strong>Google Drive milikmu sendiri</strong>, lalu menyimpan semua data
+          lamaranmu di sana.
+        </p>
+        <p>
+          Kelar meminta izin <code>drive.file</code>, yang hanya memberi akses ke file yang dibuat oleh Kelar. Kelar tidak bisa
+          melihat file lain di Drive-mu. Kamu bisa membuka, mengedit, atau menghapus spreadsheet itu kapan saja.
+        </p>
+      </div>
+      <p>Baca selengkapnya di <a href="./privasi.html">Kebijakan Privasi</a>.</p>
+
+      <h2>Kontak</h2>
+      <p>Pertanyaan atau bantuan: <a href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></p>
+    </main>
+
+    <footer>
+      <nav aria-label="Tautan">
+        <a href="./">Buka aplikasi</a>
+        <a href="./privasi.html">Kebijakan Privasi</a>
+      </nav>
+      <p>© Kelar Apps</p>
+    </footer>
+  </body>
+</html>

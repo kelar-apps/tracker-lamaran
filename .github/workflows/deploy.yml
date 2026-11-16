@@ -1,0 +1,75 @@
+# Build, test and deploy to GitHub Pages on every push to main.
+# Configuration comes from GitHub repository Variables (Settings → Secrets and
+# variables → Actions → Variables), never from a committed .env file.
+name: Deploy ke GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; a newer push waits instead of cancelling a running deploy.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VITE_GOOGLE_CLIENT_ID: ${{ vars.VITE_GOOGLE_CLIENT_ID }}
+      VITE_LICENSE_URL: ${{ vars.VITE_LICENSE_URL }}
+      VITE_PRODUCT_ID: ${{ vars.VITE_PRODUCT_ID || 'tracker-lamaran' }}
+      VITE_BUY_URL: ${{ vars.VITE_BUY_URL }}
+      VITE_CONTACT_EMAIL: ${{ vars.VITE_CONTACT_EMAIL }}
+      # Project sites live at https://<user>.github.io/<repo>/
+      VITE_BASE: ${{ vars.VITE_BASE || format('/{0}/', github.event.repository.name) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cek repository Variables
+        run: |
+          missing=""
+          for name in VITE_GOOGLE_CLIENT_ID VITE_LICENSE_URL VITE_BUY_URL VITE_CONTACT_EMAIL; do
+            if [ -z "${!name}" ]; then missing="$missing $name"; fi
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Repository Variables belum diisi:$missing (lihat SETUP.md bagian 9)"
+            exit 1
+          fi
+          echo "Base path: $VITE_BASE"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # After the build, so the tests can also check dist/ (manifest, service worker).
+      - name: Test
+        run: npm test
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
