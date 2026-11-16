@@ -78,4 +78,13 @@ Setelah mengedit `Code.gs`: **Deploy** → **Manage deployments** → pilih depl
 
 ## Menambah pembeli
 
-Untuk sekarang, tambahkan baris di sheet Pembeli secara manual. Fungsi `addBuyer(email, product, refId)` sudah disiapkan untuk dipanggil webhook pembayaran (misalnya Lynk.id) nanti. Bisa juga dicoba dari editor: ubah email di fungsi `testAddBuyer`, pilih `testAddBuyer`, lalu **Run**.
+Cara termudah: aplikasi **Kelar Admin** (`https://kelar-apps.github.io/admin/`, repo `kelar-apps/admin`). Aktifkan, nonaktifkan, dan aktifkan lagi pembeli dari HP; perubahan langsung berlaku tanpa menunggu cache 10 menit.
+
+Kelar Admin butuh Script Property tambahan:
+
+- `ADMIN_EMAILS` = email Google admin, pisahkan dengan koma kalau lebih dari satu (misalnya `kelarr.appss@gmail.com`). Kosong = semua perintah admin ditolak.
+- `PRODUCTS` (opsional) = daftar id produk, default `tracker-lamaran`. Dipakai untuk menghapus cache saat baris `semua` diubah.
+
+Perintah admin (`admin.list`, `admin.upsert`, `admin.setStatus`) memeriksa access token Google yang sama seperti cek lisensi, lalu mencocokkan email-nya dengan `ADMIN_EMAILS`. Pembeli biasa tidak bisa memakainya.
+
+Masih bisa juga menambah baris di sheet secara manual (berlaku maksimal 10 menit), atau memanggil `addBuyer(email, product, refId)` dari editor / webhook nanti. `addBuyer` tidak membuat baris dobel: email + produk yang sama diaktifkan ulang.
