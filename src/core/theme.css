@@ -203,6 +203,8 @@ body[data-fab] .app-shell {
 .screen-body {
   padding: 8px 16px;
   display: grid;
+  /* Never wider than the screen, even with long one-line text inside. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 }
 
@@ -447,6 +449,7 @@ body[data-fab] .app-shell {
 
 .stack {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -806,6 +809,7 @@ body[data-fab] .app-shell {
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 10px;
 }
 
@@ -1057,6 +1061,9 @@ body[data-fab] .app-shell {
 
 .jadwal-card {
   display: grid;
+  /* minmax(0, 1fr): a long one-line text (company · position) must shrink with
+     an ellipsis instead of widening the card past the screen edge. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -1076,6 +1083,7 @@ body[data-fab] .app-shell {
 
 .jadwal-card__main {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 2px;
   min-width: 0;
 }
@@ -1748,8 +1756,13 @@ body[data-fab] .app-shell {
 
 .jadwal-card__body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 6px;
   padding-left: 46px;
+}
+
+.jadwal-card__company .clamp-1 {
+  min-width: 0;
 }
 
 .place-link {
